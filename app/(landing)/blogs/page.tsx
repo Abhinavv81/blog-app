@@ -1,14 +1,7 @@
 import React from "react";
 import Navbar from "../_components/Navbar";
 import Footer from "../_components/Footer";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import CardComponent from "@/components/CardComponent";
 
 const Blogs = () => {
   const sampleArray = [
@@ -68,12 +61,7 @@ const Blogs = () => {
       <Navbar />
       <div className="mt-4 mb-4 flex flex-col gap-3 items-center ">
         {sampleArray.map((item, index) => (
-          <Card className="w-[90vh] h-[40vh]">
-            <CardHeader key={index}>
-              <CardTitle>{item.title}</CardTitle>
-              <CardDescription>{item.description}</CardDescription>
-            </CardHeader>
-          </Card>
+          <CardComponent title={item.title} description={item.description} />
         ))}
       </div>
       <Footer />
