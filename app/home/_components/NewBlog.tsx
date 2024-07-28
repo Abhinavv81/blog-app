@@ -1,14 +1,5 @@
 import React from "react";
-import Navbar from "../_components/Navbar";
-import Footer from "../_components/Footer";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import CardComponent from "@/components/CardComponent";
 
 const Blog = () => {
   const sampleArray = [
@@ -65,14 +56,9 @@ const Blog = () => {
   ];
   return (
     <div>
-      <div className="mt-4 mb-4 flex flex-col gap-3 items-center ">
+      <div className="mt-4 mb-4 max-w-3xl flex flex-col gap-4 space-y-2 items-center mx-auto">
         {sampleArray.map((item, index) => (
-          <Card className="w-[90vh] h-[40vh]">
-            <CardHeader key={index}>
-              <CardTitle>{item.title}</CardTitle>
-              <CardDescription>{item.description}</CardDescription>
-            </CardHeader>
-          </Card>
+          <CardComponent title={item.title} description={item.description} />
         ))}
       </div>
     </div>
