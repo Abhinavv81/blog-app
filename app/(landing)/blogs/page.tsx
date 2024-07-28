@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "../_components/Navbar";
 import Footer from "../_components/Footer";
 import CardComponent from "@/components/CardComponent";
 
@@ -58,7 +57,6 @@ const Blogs = () => {
   ];
   return (
     <div>
-      <Navbar />
       <div className="mt-4 mb-4 flex flex-col gap-3 items-center ">
         {sampleArray.map((item, index) => (
           <CardComponent title={item.title} description={item.description} />
