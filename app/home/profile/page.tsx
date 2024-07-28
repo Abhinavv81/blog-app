@@ -1,5 +1,12 @@
 import { Button } from "@/components/ui/button";
-import { Dot, Instagram, Linkedin, Twitter, UsersRound } from "lucide-react";
+import {
+  Dot,
+  GithubIcon,
+  Instagram,
+  Linkedin,
+  Twitter,
+  UsersRound,
+} from "lucide-react";
 import React from "react";
 import CardComponent from "@/components/CardComponent";
 
@@ -85,6 +92,10 @@ const Profile = () => {
             </div>
             <div className="flex gap-4 cursor-pointer">
               <Instagram />
+              <div className="text-muted-foreground">Username</div>
+            </div>
+            <div className="flex gap-4 cursor-pointer">
+              <GithubIcon />
               <div className="text-muted-foreground">Username</div>
             </div>
             <div className="flex gap-4 cursor-pointer">
