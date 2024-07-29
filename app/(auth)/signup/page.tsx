@@ -5,7 +5,7 @@ export default function SignUP() {
   return (
     <>
       <div className=" h-[100vh]  flex  justify-center items-center">
-        <div className="  w-1/3 p-6  flex  justify-between gap-4 flex-col border-solid border-2	border-white rounded-lg	">
+        <div className="  max-w-96 p-4 pl-8 pr-8 pt-6 flex  justify-between gap-4 flex-col border-solid border-2	border-white rounded-lg	">
           <div className="flex justify-center">
             <h1 className="text-2xl">SIGN UP</h1>
           </div>
