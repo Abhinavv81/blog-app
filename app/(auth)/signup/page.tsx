@@ -5,7 +5,7 @@ export default function SignUP() {
   return (
     <>
       <div className=" h-[100vh]  flex  justify-center items-center">
-        <div className="  max-w-96 p-4 pl-8 pr-8 pt-6 flex  justify-between gap-4 flex-col border-solid border-2	border-white rounded-lg	">
+        <div className="  max-w-96 p-5 flex  justify-between gap-4 flex-col border-solid border-2	border-white rounded-lg	">
           <div className="flex justify-center">
             <h1 className="text-2xl">SIGN UP</h1>
           </div>
@@ -34,14 +34,14 @@ export default function SignUP() {
               placeholder="Enter Password"
             />
           </div>
-          <Button className="">Sign Up</Button>
-          <div className="flex justify-center">
+          <Button className="mt-2">Sign Up</Button>
+          {/* <div className="flex justify-center">
             <h1 className="text-[9px]">OR</h1>
           </div>
           <div className=" h-10 flex items-center justify-center  gap-4 bg-white rounded-md">
             <Chrome className="stroke-black" />
             <Button className="">Sign Up with Google</Button>
-          </div>
+          </div> */}
         </div>
       </div>
     </>
