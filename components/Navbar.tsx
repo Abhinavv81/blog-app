@@ -1,9 +1,13 @@
+"use client";
+import { SignInButton, SignOutButton, SignUpButton, useAuth, UserButton } from "@clerk/nextjs";
 import { ModeToggle } from "@/components/Mode-theme";
 import Navlinks from "@/components/Navlinks";
 import { Button } from "@/components/ui/button";
 import React from "react";
 
 const Navbar = () => {
+   const { isLoaded, userId } = useAuth();
+
   return (
     <header className="flex items-center justify-between w-full z-50 ">
       <div>
@@ -16,7 +20,17 @@ const Navbar = () => {
         <div className="relative">
           <ModeToggle />
         </div>
-        <Button>Log Out</Button>
+        {isLoaded && userId ? (
+   
+            <UserButton/>
+       
+        ) : (
+          <>
+          <Button><SignInButton/></Button>
+          <Button>
+            <SignUpButton/></Button></>
+        )}
+
       </div>
     </header>
   );
