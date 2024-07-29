@@ -14,7 +14,7 @@ export default function SignIN() {
           <div className="flex justify-between  gap-2 flex-col    ">
             <h1 className=" text-[18px] flex   gap-2 flex-col">Email</h1>
             <input
-              className="w-full px-3 py-2 text-black bg-white border border-gray-600 rounded focus:outline-none focus:border-blue-500 "
+              className="w-full px-3 py-2 text-foreground bg-background border border-gray-600 rounded focus:outline-none focus:border-blue-500 "
               type="email"
               placeholder="Enter Email"
             />
@@ -22,12 +22,12 @@ export default function SignIN() {
           <div className="flex items-start  gap-4 flex-col   ">
             <h1 className="text-[18px] flex   gap-2 flex-col ">Password</h1>
             <input
-              className="w-full px-3 py-2 text-black bg-white border border-gray-600 rounded focus:outline-none focus:border-blue-500"
+              className="w-full px-3 py-2 text-foreground bg-background  border border-gray-600 rounded focus:outline-none focus:border-white"
               type="password"
               placeholder="Enter Password"
             />
           </div>
-              <Button className="mt-2">Sign In</Button>
+          <Button  className="mt-2">Sign In</Button>
           {/* <div className="flex justify-center">
             <h1 className="text-[9px]">OR</h1>
           </div>
