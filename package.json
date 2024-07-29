@@ -16,6 +16,7 @@
     "clsx": "^2.1.1",
     "firebase": "^10.12.4",
     "lucide-react": "^0.417.0",
+    "mongoose": "^8.5.1",
     "next": "14.2.5",
     "next-themes": "^0.3.0",
     "react": "^18",
