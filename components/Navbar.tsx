@@ -1,22 +1,46 @@
+"use client";
+import { SignInButton, SignUpButton, useAuth, UserButton } from "@clerk/nextjs";
 import { ModeToggle } from "@/components/Mode-theme";
 import Navlinks from "@/components/Navlinks";
 import { Button } from "@/components/ui/button";
 import React from "react";
-
+import Link from "next/link";
+import { SquarePen } from "lucide-react";
 const Navbar = () => {
+  const { isLoaded, userId } = useAuth();
+
   return (
     <header className="flex items-center justify-between w-full z-50 ">
-      <div>
+      <Link href="/">
         <h1 className="text-2xl font-bold">Logo</h1>
-      </div>
+      </Link>
       <nav className="hidden md:flex text-muted-foreground ">
-        <Navlinks />
+        {isLoaded && userId && <Navlinks />}
       </nav>
       <div className="flex items-center relative gap-2">
+        <Link href="/home/addpost">
+          <Button variant={"ghost"}>
+            <div className="flex gap-2 text-center items-center justify-center text-muted-foreground">
+              <SquarePen />
+              <span>Write Blog</span>
+            </div>
+          </Button>
+        </Link>
         <div className="relative">
           <ModeToggle />
         </div>
-        <Button>Log Out</Button>
+        {isLoaded && userId ? (
+          <UserButton />
+        ) : (
+          <>
+            <Button>
+              <SignInButton />
+            </Button>
+            <Button>
+              <SignUpButton />
+            </Button>
+          </>
+        )}
       </div>
     </header>
   );

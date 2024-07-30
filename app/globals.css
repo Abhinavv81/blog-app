@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-  @apply mx-4  mt-4
+body {
+  @apply mx-4  mt-4;
 }
 @layer base {
   :root {
