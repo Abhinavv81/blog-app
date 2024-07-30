@@ -1,17 +1,11 @@
 "use client";
-import {
-  SignInButton,
-  SignOutButton,
-  SignUpButton,
-  useAuth,
-  UserButton,
-} from "@clerk/nextjs";
+import { SignInButton, SignUpButton, useAuth, UserButton } from "@clerk/nextjs";
 import { ModeToggle } from "@/components/Mode-theme";
 import Navlinks from "@/components/Navlinks";
 import { Button } from "@/components/ui/button";
 import React from "react";
 import Link from "next/link";
-import { NotebookPen } from "lucide-react";
+import { SquarePen } from "lucide-react";
 const Navbar = () => {
   const { isLoaded, userId } = useAuth();
 
@@ -27,7 +21,7 @@ const Navbar = () => {
         <Link href="/home/addpost">
           <Button variant={"ghost"}>
             <div className="flex gap-2 text-center items-center justify-center text-muted-foreground">
-              <NotebookPen />
+              <SquarePen />
               <span>Write Blog</span>
             </div>
           </Button>
