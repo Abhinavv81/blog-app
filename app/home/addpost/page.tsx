@@ -7,7 +7,7 @@ const page = () => {
   const onChange = (value: string) => {};
   return (
     <div className="min-h-screen max-w-5xl mx-auto">
-      <div className="flex w-full mt-6">
+      <div className="flex w-full mt-6 gap-3">
         <Button size={"sm"} variant={"ghost"} className="ml-auto">
           <span className="">Cancel</span>
         </Button>
@@ -23,7 +23,7 @@ const page = () => {
         <input
           type="text"
           placeholder="Title"
-          className="w-full p-2 border  rounded-md text-4xl bg-transparent border-none focus:outline-none font-bold"
+          className="w-full p-2 border  rounded-md text-6xl bg-transparent border-none focus:outline-none font-bold"
         />
         <Editor onChange={() => onChange} initialContent={""} />
       </div>
