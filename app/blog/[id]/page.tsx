@@ -5,6 +5,8 @@ import {
   MessageSquare,
   Share2,
   Share,
+  Flag,
+  SquareChevronRight,
 } from "lucide-react";
 import React from "react";
 
@@ -29,15 +31,25 @@ const Page = () => {
               <h1 className="text-xs"> Published On xx-xx-xxxx</h1>
             </div>
           </div>
-          <div className="flex  mt-3 gap-10 p-1 border border-solid border-x-0 text-muted-foreground py-3 ">
-            <div className="hover:text-primary hover:border hover:border-primary/30  px-3 py-2 rounded-md flex justify-center items-center gap-2 border border-black/0">
-              <Heart size={"20px"} />
+          <div className="flex  mt-3 gap-10 p-1 border border-solid border-x-0 text-muted-foreground py-3 justify-between ">
+            <div className="flex gap-10 ">
+              <div className="hover:text-primary hover:border hover:border-primary/30  px-3 py-2 rounded-md flex justify-center items-center gap-2 border border-black/0">
+                <Heart size={"20px"} />
+              </div>
+              <div className="hover:text-primary hover:border hover:border-primary/30  px-3 py-2 rounded-md flex justify-center items-center gap-2 border border-black/0">
+                <MessageSquare size={"20px"} />
+              </div>
             </div>
-            <div className="hover:text-primary hover:border hover:border-primary/30  px-3 py-2 rounded-md flex justify-center items-center gap-2 border border-black/0">
-              <MessageSquare size={"20px"} />
-            </div>
-            <div className="hover:text-primary hover:border hover:border-primary/30  px-3 py-2 rounded-md flex justify-center items-center gap-2 border border-black/0">
-              <Share size={20} />
+            <div className="flex gap-10">
+              <div className="hover:text-primary hover:border hover:border-primary/30  px-3 py-2 rounded-md flex justify-center items-center gap-2 border border-black/0">
+                <Share size={20} />
+              </div>
+              <div className="hover:text-primary hover:border hover:border-primary/30  px-3 py-2 rounded-md flex justify-center items-center gap-2 border border-black/0">
+                <Flag size={20} />
+              </div>
+              <div className="hover:text-primary hover:border hover:border-primary/30  px-3 py-2 rounded-md flex justify-center items-center gap-2 border border-black/0">
+                <SquareChevronRight  size={20} />
+              </div>
             </div>
           </div>
         </div>
@@ -134,15 +146,25 @@ const Page = () => {
             Heello world
           </div>
         </div>
-        <div className="flex  mt-3 gap-10 p-1  text-muted-foreground  ">
-          <div className="hover:text-primary hover:border hover:border-primary/30  px-3 py-2 rounded-md flex justify-center items-center gap-2 border border-black/0">
-            <Heart size={"20px"} />
+        <div className="flex  mt-3 gap-10 p-1  text-muted-foreground justify-between ">
+          <div className="flex gap-10 ">
+            <div className="hover:text-primary hover:border hover:border-primary/30  px-3 py-2 rounded-md flex justify-center items-center gap-2 border border-black/0">
+              <Heart size={"20px"} />
+            </div>
+            <div className="hover:text-primary hover:border hover:border-primary/30  px-3 py-2 rounded-md flex justify-center items-center gap-2 border border-black/0">
+              <MessageSquare size={"20px"} />
+            </div>
           </div>
-          <div className="hover:text-primary hover:border hover:border-primary/30  px-3 py-2 rounded-md flex justify-center items-center gap-2 border border-black/0">
-            <MessageSquare size={"20px"} />
-          </div>
-          <div className="hover:text-primary hover:border hover:border-primary/30  px-3 py-2 rounded-md flex justify-center items-center gap-2 border border-black/0">
-            <Share size={20} />
+          <div className="flex gap-10">
+            <div className="hover:text-primary hover:border hover:border-primary/30  px-3 py-2 rounded-md flex justify-center items-center gap-2 border border-black/0">
+              <Share size={20} />
+            </div>
+            <div className="hover:text-primary hover:border hover:border-primary/30  px-3 py-2 rounded-md flex justify-center items-center gap-2 border border-black/0">
+              <Flag size={20} />
+            </div>
+            <div className="hover:text-primary hover:border hover:border-primary/30  px-3 py-2 rounded-md flex justify-center items-center gap-2 border border-black/0">
+              <SquareChevronRight  size={20} />
+            </div>
           </div>
         </div>
         <hr className="text-primary/10 mt-5" />
@@ -299,7 +321,8 @@ const Page = () => {
                     </p>
                   </div>
                 </div>
-              </div> <div className="col-span-1 ">
+              </div>{" "}
+              <div className="col-span-1 ">
                 <div className="gap-2">
                   <div className="rounded-md bg-gray-300 w-full h-[15rem]">
                     .
