@@ -64,18 +64,20 @@ const Profile = () => {
     },
   ];
   return (
-    <div className="flex w-full min-h-screen">
+    <div className="flex w-full min-h-screen flex-wrap">
       <div className="w-full md:w-1/4">
         <div className="m-4 flex flex-col gap-2">
-          <img
-            className="rounded-full overflow-hidden w-[20rem]"
-            src="https://via.placeholder.com/150"
-            alt="profile"
-          />
-          <div className="text-left">Username</div>
+          <div className=" flex  flex-wrap gap-5 items-center">
+            <img
+              className="  rounded-full overflow-hidden sm:w-[20rem] w-[6rem]  "
+              src="https://via.placeholder.com/150"
+              alt="profile"
+            />
+            <div className="text-left text-3xl font-semibold pb-1">Username</div>
+          </div>
           <div className="text-justify">Bio</div>
           <Button>Edit Profile</Button>
-          <div className="flex gap-1">
+          <div className="flex gap-1 mb-1 mt-1">
             <div className="flex gap-0.25">
               <UsersRound />
               <div className="text-muted-foreground">4 Followers</div>
@@ -85,8 +87,8 @@ const Profile = () => {
               <div className="text-muted-foreground">1 Following</div>
             </div>
           </div>
-          <div className="flex flex-col gap-1">
-            <div className="flex gap-4 cursor-pointer ">
+          <div className="flex flex-row gap-3 justify-between flex-wrap sm:flex-col">
+            <div className="flex gap-4 cursor-pointer  ">
               <Linkedin />
               <div className="text-muted-foreground">Username</div>
             </div>
