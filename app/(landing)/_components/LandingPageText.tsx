@@ -9,7 +9,7 @@ const LandingPageText = () => {
     <>
       <div className=" h-[85vh] max-w-3xl mx-auto text-center flex flex-col items-center justify-center gap-3">
         <h1 className="text-4xl font-bold flex justify-center ">
-          Welcome to Ken - Your Personal Blogging Haven
+          Welcome to Ken - Discover and Share Your Stories
         </h1>
         <h2 className="text-xl font-medium flex justify-center text-muted-foreground">
           Join our community of passionate writers and readers. Start your
