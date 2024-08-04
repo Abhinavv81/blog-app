@@ -1,6 +1,5 @@
 "use client";
 
-import Not_Found_page from "@/components/404";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
@@ -14,7 +13,7 @@ export default function GlobalError({
   return (
     <>
       <div className="  flex flex-col justify-center items-center gap-6 h-screen text-center">
-        <div className="relative top-80 z-20 flex flex-col justify-center items-center gap-6 text-center ">
+        <div className="relative top-[300px] z-20 flex flex-col justify-center items-center gap-6 text-center ">
           <div className="flex gap-[190px] mt-4 ">
             <Link href="/">
               <Button>Go Home</Button>
@@ -24,7 +23,7 @@ export default function GlobalError({
             </Link>
           </div>
         </div>
-        <div className="  relative -top-28  flex justify-center items-center w-1/2 ">
+        <div className="  relative -top-32  flex justify-center items-center w-1/2 ">
           <img
             src="https://res.cloudinary.com/duysea99p/image/upload/v1722709768/white_error_agreek.png"
             alt=""
