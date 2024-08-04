@@ -64,16 +64,18 @@ const Profile = () => {
     },
   ];
   return (
-    <div className="flex w-full min-h-screen flex-wrap">
-      <div className="w-full md:w-1/4">
+    <div className="flex w-full min-h-screen flex-col  lg:flex-row">
+      <div className="">
         <div className="m-4 flex flex-col gap-2">
-          <div className=" flex  flex-wrap gap-5 items-center">
+          <div className=" flex flex-col gap-5 items-start md:flex-row md:items-center md:gap-10 lg:flex-col ">
             <img
-              className="  rounded-full overflow-hidden sm:w-[20rem] w-[6rem]  "
+              className="  rounded-full overflow-hidden sm:max-w-[20rem]  "
               src="https://via.placeholder.com/150"
               alt="profile"
             />
-            <div className="text-left text-3xl font-semibold pb-1">Username</div>
+            <div className="text-left text-3xl font-semibold pb-1">
+              Username
+            </div>
           </div>
           <div className="text-justify">Bio</div>
           <Button>Edit Profile</Button>
@@ -106,7 +108,7 @@ const Profile = () => {
             </div>
           </div>
         </div>
-      </div>  
+      </div>
       <div className="flex-1">
         <div className="w-full p-6">
           {sampleArray.map((item, index) => (
