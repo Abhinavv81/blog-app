@@ -59,7 +59,7 @@ const Profile = () => {
     },
     {
       title: "Tenth Blog",
-      description: "Tenth Blog Description",
+      description: "Tenth Blog Description ",
       date: "Blog Date 10",
     },
   ];
