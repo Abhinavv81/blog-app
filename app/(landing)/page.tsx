@@ -1,15 +1,13 @@
-"use client";
+
 import LandingPageText from "./_components/LandingPageText";
 import Footer from "./_components/Footer";
 import GridPattern from "@/components/magicui/grid-pattern";
 import { ChevronRight, Cpu, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { useAuth } from "@clerk/nextjs";
 import AnimatedGradientText from "@/components/magicui/animated-gradient-text";
 import { cn } from "@/lib/utils";
 export default function Home() {
-  const { userId, isLoaded } = useAuth();
   return (
     <>
       <div className="">
@@ -146,7 +144,7 @@ export default function Home() {
           </div>
           <div className="p-6 my-20">
             <span className="text-4xl font-bold">
-              {userId && isLoaded ? "Welcome back to" : "Join "} <br />
+         Welcome back to<br />
               the community of blog writters across the Globe <br />
             </span>
             <div className="flex gap-4 my-5">

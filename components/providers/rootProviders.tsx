@@ -1,12 +1,8 @@
 "use client";
-import { ClerkProvider } from "@clerk/nextjs";
-import { dark } from "@clerk/themes";
-import React, { useEffect } from "react";
+import React from "react";
 import { ThemeProvider } from "../theme-provider";
-import { useTheme } from "next-themes";
 const RootProviders = ({ children }: { children: React.ReactNode }) => {
   return (
-    <ClerkProvider>
       <ThemeProvider
         attribute="class"
         defaultTheme="dark"
@@ -16,7 +12,7 @@ const RootProviders = ({ children }: { children: React.ReactNode }) => {
       >
         {children}
       </ThemeProvider>
-    </ClerkProvider>
+   
   );
 };
 
