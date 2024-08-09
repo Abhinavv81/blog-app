@@ -1,7 +1,14 @@
-import mongoose, { model, models, Schema } from "mongoose";
+import { model, models, Schema, Document, Model } from "mongoose";
 
-const userSchema = new Schema({
+interface IUser extends Document {
+  name: string;
+  email: string;
+  displayImage?: string;
+  isAdmin: boolean;
+  bio?: string;
+}
 
+const userSchema = new Schema<IUser>({
   name: {
     type: String,
     required: true,
@@ -22,13 +29,14 @@ const userSchema = new Schema({
     required: true,
     default: false,
   },
-  
-  bio:{
-      type:String,
-      required:false
+
+  bio: {
+    type: String,
+    required: false,
   },
-    
 });
 
-const User = models.User || model("User", userSchema);
-export default User;
+const UserModel: Model<IUser> =
+  models?.User || model<IUser>("User", userSchema);
+
+export default UserModel;

@@ -1,20 +1,10 @@
 "use server";
 import mongoose from "mongoose";
-import User from "@/models/user";
 import { connectDB } from "@/lib/db";
-interface User {
-  name: string;
-  email: string;
-  displayImage?: string;
-  isAdmin?: boolean;
-  bio?: string;
-}
+import User from "@/models/user";
 
-export const  createUser = async (name:string,email:string) => {
+export const createUser = async (name: string, email: string) => {
   await connectDB();
-    const user = await User.create({
-      name,
-      email,
-    });
+  const user = await User.create({ name, email, isAdmin: false });
   return user;
-}
+};
