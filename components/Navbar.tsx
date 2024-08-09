@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import React from "react";
 import Link from "next/link";
 import { SquarePen } from "lucide-react";
-import { SignIn } from "./sign-in";
+import { SignIn } from "./auth/sign-in";
 import  SignOut  from "./auth/signout";
 import User from "./user";
 const Navbar = () => {
