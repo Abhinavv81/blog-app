@@ -25,10 +25,10 @@ const Navbar = () => {
         </Link>
         <div className="relative">
           <ModeToggle />
-        </div>{" "}
+        </div>
         <User />
-        <SignIn />
         <SignOut />
+        <SignIn />
       </div>
     </header>
   );
