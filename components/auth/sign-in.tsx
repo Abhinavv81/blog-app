@@ -6,7 +6,7 @@ export function SignIn() {
   return (
     <form action={SignInGoogle}>
       <Button type="submit" variant={"default"} size={"sm"}>
-        Signin with Google
+        Sign IN
       </Button>
     </form>
   );
