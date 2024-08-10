@@ -7,7 +7,10 @@ import { SquarePen } from "lucide-react";
 import { SignIn } from "./auth/sign-in";
 import SignOut from "./auth/signout";
 import User from "./user";
-const Navbar = () => {
+import { auth } from "@/auth";
+
+const Navbar = async () => {
+  const session = await auth();
   return (
     <header className="flex items-center justify-between w-full z-50 ">
       <Link href="/">
@@ -26,9 +29,13 @@ const Navbar = () => {
         <div className="relative">
           <ModeToggle />
         </div>
-        <User />
-        <SignOut />
-        <SignIn />
+        {session?.user ? (
+          <div className="flex items-center gap-3">
+            <User /> <SignOut />
+          </div>
+        ) : (
+          <SignIn />
+        )}
       </div>
     </header>
   );

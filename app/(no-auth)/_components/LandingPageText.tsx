@@ -2,7 +2,10 @@
 import { Button } from "@/components/ui/button";
 import React from "react";
 import Link from "next/link";
-const LandingPageText = () => {
+import { auth } from "@/auth";
+const LandingPageText = async () => {
+  const session = await auth();
+
   return (
     <>
       <div className=" h-[85vh] max-w-3xl mx-auto text-center flex flex-col items-center justify-center gap-3">
@@ -14,14 +17,19 @@ const LandingPageText = () => {
           journey today and let your voice be heard.
         </h2>
         <div className="flex gap-2">
-          <Link href={"/home/addpost"}>
-            <Button>Write a Blog</Button>
-          </Link>
-
-          <Link href={"/sign-in"}>
-            <Button>Get Started</Button>
-          </Link>
-
+          {session?.user ? (
+            <div>
+              <Link href={"/home/addpost"}>
+                <Button>Write a Blog</Button>
+              </Link>
+            </div>
+          ) : (
+            <div>
+              <Link href={"/sign-in"}>
+                <Button>Get Started</Button>
+              </Link>
+            </div>
+          )}
           <Link href={"/blogs"}>
             <Button variant={"outline"}>Explore Blogs</Button>
           </Link>

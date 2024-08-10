@@ -1,13 +1,15 @@
-
 import LandingPageText from "./_components/LandingPageText";
 import Footer from "./_components/Footer";
 import GridPattern from "@/components/magicui/grid-pattern";
-import { ChevronRight, Cpu, Star } from "lucide-react";
+import { Cherry, ChevronRight, Cpu, PhilippinePeso, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import AnimatedGradientText from "@/components/magicui/animated-gradient-text";
 import { cn } from "@/lib/utils";
-export default function Home() {
+import { auth } from "@/auth";
+
+export default async function Home() {
+  const session = await auth();
   return (
     <>
       <div className="">
@@ -73,12 +75,12 @@ export default function Home() {
                 <span>Technology</span>
               </div>
               <div className="flex item-center gap-2 border border-muted-foreground/40 px-4 py-1 rounded-full font-code font-semibold ">
-                <Cpu />
-                <span>Technology</span>
+                <PhilippinePeso />
+                <span>Porn</span>
               </div>
               <div className="flex item-center gap-2 border border-muted-foreground/40 px-4 py-1 rounded-full font-code font-semibold ">
-                <Cpu />
-                <span>Technology</span>
+                <Cherry />
+                <span>Rand</span>
               </div>
               <div className="flex item-center gap-2 border border-muted-foreground/40 px-4 py-1 rounded-full font-code font-semibold ">
                 <Cpu />
@@ -144,20 +146,29 @@ export default function Home() {
           </div>
           <div className="p-6 my-20">
             <span className="text-4xl font-bold">
-         Welcome back to<br />
+              Welcome back to
+              <br />
               the community of blog writters across the Globe <br />
             </span>
             <div className="flex gap-4 my-5">
-              <Link href="/sign-up">
-                <Button>
-                  <span>Get Started</span>
-                </Button>
-              </Link>
-              <Link href="/sign-in">
-                <Button variant={"outline"}>
-                  <span>Sign in</span>
-                </Button>
-              </Link>
+              {session?.user ? (
+                <div>
+                  <Link href="/sign-up">
+                    <Button>
+                      <span>Get Started</span>
+                    </Button>
+                  </Link>
+                </div>
+              ) : (
+                <div>
+                  {" "}
+                  <Link href="/sign-in">
+                    <Button variant={"outline"}>
+                      <span>Sign in</span>
+                    </Button>
+                  </Link>
+                </div>
+              )}
             </div>
           </div>
 
