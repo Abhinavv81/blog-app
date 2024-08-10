@@ -1,3 +1,4 @@
+"use server";
 import { model, models, Schema, Document, Model } from "mongoose";
 
 interface IUser extends Document {
