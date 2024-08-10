@@ -1,7 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import React from "react";
-import { useAuth } from "@clerk/nextjs";
 import Link from "next/link";
 const LandingPageText = () => {
   return (
@@ -15,15 +14,14 @@ const LandingPageText = () => {
           journey today and let your voice be heard.
         </h2>
         <div className="flex gap-2">
- 
-            <Link href={"/home/addpost"}>
-              <Button>Write a Blog</Button>
-            </Link>
+          <Link href={"/home/addpost"}>
+            <Button>Write a Blog</Button>
+          </Link>
 
-            <Link href={"/sign-in"}>
-              <Button>Get Started</Button>
-            </Link>
-         
+          <Link href={"/sign-in"}>
+            <Button>Get Started</Button>
+          </Link>
+
           <Link href={"/blogs"}>
             <Button variant={"outline"}>Explore Blogs</Button>
           </Link>
