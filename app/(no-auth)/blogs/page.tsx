@@ -1,6 +1,8 @@
 import React from "react";
 import Footer from "../_components/Footer";
 import CardComponent from "@/components/CardComponent";
+import { Button } from "@/components/ui/button";
+import { Search } from "lucide-react";
 
 const Blogs = () => {
   const sampleArray = [
@@ -56,7 +58,18 @@ const Blogs = () => {
     },
   ];
   return (
-    <div>
+    <div className="flex flex-col items-center mt-3">
+      <form className="flex flex-row gap-2 items-center justify-center">
+        <input
+          type="text"
+          placeholder="Search For Blogs"
+          name="search"
+          className=" h-10 rounded-md inline-flex items-center justify-center focus:outline-none text-center "
+        ></input>
+        <Button type="submit" className="h-10" variant="secondary">
+          <Search />
+        </Button>
+      </form>
       <div className="mt-4 mb-4 max-w-3xl flex flex-col gap-4 space-y-2 items-center mx-auto">
         {sampleArray.map((item, index) => (
           <CardComponent title={item.title} description={item.description} />
