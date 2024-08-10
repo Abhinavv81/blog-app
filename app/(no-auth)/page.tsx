@@ -1,15 +1,16 @@
-"use client";
 import LandingPageText from "./_components/LandingPageText";
 import Footer from "./_components/Footer";
 import GridPattern from "@/components/magicui/grid-pattern";
-import { ChevronRight, Cpu, Star } from "lucide-react";
+import { Cherry, ChevronRight, Cpu, PhilippinePeso, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { useAuth } from "@clerk/nextjs";
 import AnimatedGradientText from "@/components/magicui/animated-gradient-text";
 import { cn } from "@/lib/utils";
-export default function Home() {
-  const { userId, isLoaded } = useAuth();
+import { auth } from "@/auth";
+import { SignInGoogle } from "@/actions/auth";
+
+export default async function Home() {
+  const session = await auth();
   return (
     <>
       <div className="">
@@ -75,12 +76,12 @@ export default function Home() {
                 <span>Technology</span>
               </div>
               <div className="flex item-center gap-2 border border-muted-foreground/40 px-4 py-1 rounded-full font-code font-semibold ">
-                <Cpu />
-                <span>Technology</span>
+                <PhilippinePeso />
+                <span>Porn</span>
               </div>
               <div className="flex item-center gap-2 border border-muted-foreground/40 px-4 py-1 rounded-full font-code font-semibold ">
-                <Cpu />
-                <span>Technology</span>
+                <Cherry />
+                <span>Rand</span>
               </div>
               <div className="flex item-center gap-2 border border-muted-foreground/40 px-4 py-1 rounded-full font-code font-semibold ">
                 <Cpu />
@@ -146,20 +147,26 @@ export default function Home() {
           </div>
           <div className="p-6 my-20">
             <span className="text-4xl font-bold">
-              {userId && isLoaded ? "Welcome back to" : "Join "} <br />
+              Welcome back to
+              <br />
               the community of blog writters across the Globe <br />
             </span>
             <div className="flex gap-4 my-5">
-              <Link href="/sign-up">
-                <Button>
-                  <span>Get Started</span>
-                </Button>
-              </Link>
-              <Link href="/sign-in">
-                <Button variant={"outline"}>
-                  <span>Sign in</span>
-                </Button>
-              </Link>
+              {session?.user ? (
+                <div>
+                  <Link href={"/addpost"}>
+                    <Button>Write a Blog</Button>
+                  </Link>
+                </div>
+              ) : (
+                <div>
+                  <form action={SignInGoogle}>
+                    <Button type="submit" variant={"default"} size={"sm"}>
+                      Get Started
+                    </Button>
+                  </form>
+                </div>
+              )}
             </div>
           </div>
 

@@ -1,10 +1,12 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import React from "react";
-import { useAuth } from "@clerk/nextjs";
 import Link from "next/link";
-const LandingPageText = () => {
-  const { isSignedIn, isLoaded } = useAuth();
+import { auth } from "@/auth";
+import { SignInGoogle } from "@/actions/auth";
+const LandingPageText = async () => {
+  const session = await auth();
+
   return (
     <>
       <div className=" h-[85vh] max-w-3xl mx-auto text-center flex flex-col items-center justify-center gap-3">
@@ -16,14 +18,20 @@ const LandingPageText = () => {
           journey today and let your voice be heard.
         </h2>
         <div className="flex gap-2">
-          {isLoaded && isSignedIn ? (
-            <Link href={"/home/addpost"}>
-              <Button>Write a Blog</Button>
-            </Link>
+          {session?.user ? (
+            <div>
+              <Link href={"/addpost"}>
+                <Button>Write a Blog</Button>
+              </Link>
+            </div>
           ) : (
-            <Link href={"/sign-in"}>
-              <Button>Get Started</Button>
-            </Link>
+            <div>
+              <form action={SignInGoogle}>
+                <Button type="submit" variant={"default"} size={"sm"}>
+                  Get Started
+                </Button>
+              </form>
+            </div>
           )}
           <Link href={"/blogs"}>
             <Button variant={"outline"}>Explore Blogs</Button>

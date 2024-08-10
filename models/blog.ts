@@ -1,27 +1,52 @@
-import mongoose from "mongoose";
+import { model, models, Schema, Document, Model } from "mongoose";
 
-const BlogSchema = new mongoose.Schema(
+interface IBlog extends Document {
+  userId: string;
+  userName: string;
+  displayImage?: string;
+  title: string;
+  description?: string;
+  content?: string;
+  tags?: string[];
+  isPublished: boolean;
+  coverImage?: string;
+  icon?: string;
+  comments: {
+    userId: string;
+    userName: string;
+    displayImage?: string;
+    comment: string;
+    createdAt: Date;
+  }[];
+  likes: {
+    userId: string;
+  }[];
+  likeCount: number;
+  shareCount: number;
+}
+
+const BlogSchema = new Schema<IBlog>(
   {
     userId: {
       type: String,
       required: true,
     },
-    userName:{
-      type:String,
-      require:true
+    userName: {
+      type: String,
+      require: true,
     },
-    displayImage:{
-      type:String,
-      require:false
+    displayImage: {
+      type: String,
+      require: false,
     },
     title: {
       type: String,
       required: true,
     },
     description: {
-        type: String,
-        required: false,
-        },
+      type: String,
+      required: false,
+    },
     content: {
       type: String,
       required: false,
@@ -89,5 +114,6 @@ const BlogSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const Blog = mongoose.models.Blog || mongoose.model("Blog", BlogSchema);
-export default Blog;
+const BlogModel: Model<IBlog> =
+  models?.Blog || model<IBlog>("Blog", BlogSchema);
+export default BlogModel;
