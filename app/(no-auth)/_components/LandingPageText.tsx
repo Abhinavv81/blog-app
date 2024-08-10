@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import React from "react";
 import Link from "next/link";
 import { auth } from "@/auth";
+import { SignInGoogle } from "@/actions/auth";
 const LandingPageText = async () => {
   const session = await auth();
 
@@ -19,15 +20,17 @@ const LandingPageText = async () => {
         <div className="flex gap-2">
           {session?.user ? (
             <div>
-              <Link href={"/home/addpost"}>
+              <Link href={"/addpost"}>
                 <Button>Write a Blog</Button>
               </Link>
             </div>
           ) : (
             <div>
-              <Link href={"/sign-in"}>
-                <Button>Get Started</Button>
-              </Link>
+              <form action={SignInGoogle}>
+                <Button type="submit" variant={"default"} size={"sm"}>
+                  Get Started
+                </Button>
+              </form>
             </div>
           )}
           <Link href={"/blogs"}>

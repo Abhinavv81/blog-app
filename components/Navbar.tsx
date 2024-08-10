@@ -18,7 +18,7 @@ const Navbar = async () => {
       </Link>
       <nav className="hidden md:flex text-muted-foreground "></nav>
       <div className="flex items-center relative gap-2">
-        <Link href="/home/addpost">
+        <Link href="/addpost">
           <Button variant={"ghost"}>
             <div className="flex gap-2 text-center items-center justify-center text-muted-foreground">
               <SquarePen />

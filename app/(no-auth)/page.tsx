@@ -7,6 +7,7 @@ import Link from "next/link";
 import AnimatedGradientText from "@/components/magicui/animated-gradient-text";
 import { cn } from "@/lib/utils";
 import { auth } from "@/auth";
+import { SignInGoogle } from "@/actions/auth";
 
 export default async function Home() {
   const session = await auth();
@@ -153,20 +154,17 @@ export default async function Home() {
             <div className="flex gap-4 my-5">
               {session?.user ? (
                 <div>
-                  <Link href="/sign-up">
-                    <Button>
-                      <span>Get Started</span>
-                    </Button>
+                  <Link href={"/addpost"}>
+                    <Button>Write a Blog</Button>
                   </Link>
                 </div>
               ) : (
                 <div>
-                  {" "}
-                  <Link href="/sign-in">
-                    <Button variant={"outline"}>
-                      <span>Sign in</span>
+                  <form action={SignInGoogle}>
+                    <Button type="submit" variant={"default"} size={"sm"}>
+                      Get Started
                     </Button>
-                  </Link>
+                  </form>
                 </div>
               )}
             </div>
