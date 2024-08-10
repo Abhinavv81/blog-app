@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { auth } from "@/auth";
 import { SignInGoogle } from "@/actions/auth";
+import { resolve } from "path";
 const LandingPageText = async () => {
   const session = await auth();
 
