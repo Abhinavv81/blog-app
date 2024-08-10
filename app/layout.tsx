@@ -1,12 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/Navbar";
-import { ClerkProvider } from "@clerk/nextjs";
-import { dark } from "@clerk/themes";
-const inter = Inter({ subsets: ["latin"] });
 import RootProviders from "@/components/providers/rootProviders";
+import { connectDB } from "@/lib/db";
 export const metadata: Metadata = {
   title: "Ken - Your Personal Blogging Haven",
   description:
@@ -18,6 +14,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  connectDB();
   return (
     <html lang="en">
       <body>
