@@ -1,4 +1,4 @@
-import { GithubIcon, Instagram, Linkedin, Twitter } from "lucide-react";
+import { GithubIcon, Instagram, Link, Linkedin, Twitter } from "lucide-react";
 import React from "react";
 
 const Footer = () => {
@@ -17,10 +17,10 @@ const Footer = () => {
         <div className="col-span-1">
           <span className="font-semibold text-lg">Quick Links</span>
           <ul className="text-muted-foreground ml-4 mt-3">
-            <li>About</li>
-            <li>Privacy Policy</li>
-            <li>Contact</li>
-            <li>Terms of Service</li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/terms">Terms of Service</a></li>
           </ul>
         </div>
         <div className="col-span-1">

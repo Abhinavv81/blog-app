@@ -7,7 +7,6 @@ import { SignInGoogle } from "@/actions/auth";
 import { resolve } from "path";
 const LandingPageText = async () => {
   const session = await auth();
-
   return (
     <>
       <div className=" h-[85vh] max-w-3xl mx-auto text-center flex flex-col items-center justify-center gap-3">
