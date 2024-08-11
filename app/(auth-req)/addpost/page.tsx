@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import React from "react";
 
 const page = () => {
-  const onChange = (value: string) => {};
+  const onChange = () => {};
   return (
     <div className="min-h-screen max-w-5xl mx-auto">
       <div className="flex w-full mt-6 gap-3">

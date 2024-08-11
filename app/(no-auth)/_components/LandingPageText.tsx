@@ -1,4 +1,3 @@
-"use client";
 import { Button } from "@/components/ui/button";
 import React from "react";
 import Link from "next/link";
@@ -6,7 +5,6 @@ import { auth } from "@/auth";
 import { SignInGoogle } from "@/actions/auth";
 const LandingPageText = async () => {
   const session = await auth();
-
   return (
     <>
       <div className=" h-[85vh] max-w-3xl mx-auto text-center flex flex-col items-center justify-center gap-3">
@@ -21,7 +19,7 @@ const LandingPageText = async () => {
           {session?.user ? (
             <div>
               <Link href={"/addpost"}>
-                <Button>Write a Blog</Button>
+                <Button size={"sm"}>Write a Blog</Button>
               </Link>
             </div>
           ) : (
@@ -34,7 +32,9 @@ const LandingPageText = async () => {
             </div>
           )}
           <Link href={"/blogs"}>
-            <Button variant={"outline"}>Explore Blogs</Button>
+            <Button variant={"outline"} size={"sm"}>
+              Explore Blogs
+            </Button>
           </Link>
         </div>
       </div>

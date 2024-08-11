@@ -57,7 +57,7 @@ const Blog = () => {
   return (
     <div>
       <div className="mt-4 mb-4 max-w-3xl flex flex-col gap-4 space-y-2 items-center mx-auto">
-        {sampleArray.map((item, index) => (
+        {sampleArray.map((item) => (
           <CardComponent title={item.title} description={item.description} />
         ))}
       </div>

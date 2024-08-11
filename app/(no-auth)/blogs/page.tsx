@@ -1,5 +1,5 @@
 import React from "react";
-import Footer from "../_components/Footer";
+import Footer from "../../../components/Footer";
 import CardComponent from "@/components/CardComponent";
 import { Button } from "@/components/ui/button";
 import { Search } from "lucide-react";
@@ -71,7 +71,7 @@ const Blogs = () => {
         </Button>
       </form>
       <div className="mt-4 mb-4 max-w-3xl flex flex-col gap-4 space-y-2 items-center mx-auto">
-        {sampleArray.map((item, index) => (
+        {sampleArray.map((item) => (
           <CardComponent title={item.title} description={item.description} />
         ))}
       </div>

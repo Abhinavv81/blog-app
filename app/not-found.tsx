@@ -1,13 +1,5 @@
 import { Button } from "@/components/ui/button";
-import {
-  Heart,
-  MessageCircle,
-  MessageSquare,
-  Share2,
-  Share,
-  Flag,
-  SquareChevronRight,
-} from "lucide-react";
+
 import React from "react";
 import Link from "next/link";
 

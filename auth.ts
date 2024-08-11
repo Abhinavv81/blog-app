@@ -7,11 +7,13 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       if (account?.provider === "google") {
         const { name, email } = user;
         try {
-          // const userExists = await checkUser(email || "");
-
-          // if (!userExists) {
-          //   const acc = await createUser(name || "", email || "");
-          // }
+          const a = await fetch("http://localhost:3000/api/createuser", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ name, email }),
+          });
 
           return user; // don't edit this line
         } catch (error) {
