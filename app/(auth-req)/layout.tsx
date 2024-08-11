@@ -1,6 +1,5 @@
 import React from "react";
 import Footer from "./_components/Footer";
-import { useRouter } from "next/navigation";
 import { auth } from "@/auth";
 import { SignIn } from "@/components/auth/sign-in";
 const layout = async ({ children }: { children: React.ReactNode }) => {

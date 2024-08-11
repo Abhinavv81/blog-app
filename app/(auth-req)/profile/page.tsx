@@ -111,7 +111,7 @@ const Profile = () => {
       </div>
       <div className="flex-1">
         <div className="w-full p-6">
-          {sampleArray.map((item, index) => (
+          {sampleArray.map((item) => (
             <CardComponent title={item.title} description={item.description} />
           ))}
         </div>

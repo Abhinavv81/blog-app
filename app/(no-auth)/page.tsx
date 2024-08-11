@@ -1,5 +1,5 @@
 import LandingPageText from "./_components/LandingPageText";
-import Footer from "../../components/Footer";
+
 import GridPattern from "@/components/magicui/grid-pattern";
 import { Cherry, ChevronRight, Cpu, PhilippinePeso, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -9,8 +9,11 @@ import { cn } from "@/lib/utils";
 import { auth } from "@/auth";
 import { SignInGoogle } from "@/actions/auth";
 
+import { Popularblogs } from "./_components/Popularblogs";
+
 export default async function Home() {
   const session = await auth();
+
   return (
     <>
       <div className="">
@@ -63,7 +66,7 @@ export default async function Home() {
               Popular Blogs <br />
             </span>
             <div className="min-h-screen">
-              {/* add bento grid for popular blogs */}
+              <Popularblogs />
             </div>
           </div>
           <div className="p-6">
