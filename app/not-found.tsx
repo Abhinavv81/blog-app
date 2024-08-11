@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
 import React from "react";
 import Link from "next/link";
-import { ChevronLeft } from "lucide-react";
+import { ChevronLeft, StickyNote } from "lucide-react";
 
 const NotFound = () => {
   const { resolvedTheme } = useTheme();
@@ -58,13 +58,16 @@ const NotFound = () => {
         <span className="mt-2 font-semibold text-xl">Page not found. </span>
         <div className="gap-4 flex flex-row mt-11">
           <Link href="/">
-            <Button>
+            <Button className="flex items-center gap-1">
               <ChevronLeft />
               Go back home
             </Button>
           </Link>
           <Link href="/blogs">
-            <Button>Explore Blogs</Button>
+            <Button className="flex items-center gap-1">
+              <StickyNote />
+              Explore Blogs
+            </Button>
           </Link>
         </div>
       </div>
