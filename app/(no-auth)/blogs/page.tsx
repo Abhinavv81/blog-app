@@ -1,5 +1,5 @@
 import React from "react";
-import Footer from "../_components/Footer";
+import Footer from "../../../components/Footer";
 import CardComponent from "@/components/CardComponent";
 import { Button } from "@/components/ui/button";
 import { Search } from "lucide-react";

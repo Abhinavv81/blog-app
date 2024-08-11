@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import RootProviders from "@/components/providers/rootProviders";
 import { connectDB } from "@/lib/db";
+import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "Ken - Your Personal Blogging Haven",
   description:
@@ -21,6 +22,7 @@ export default function RootLayout({
         <RootProviders>
           <Navbar />
           {children}
+          <Footer />
         </RootProviders>
       </body>
     </html>

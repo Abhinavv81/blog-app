@@ -1,5 +1,5 @@
 import LandingPageText from "./_components/LandingPageText";
-import Footer from "./_components/Footer";
+import Footer from "../../components/Footer";
 import GridPattern from "@/components/magicui/grid-pattern";
 import { Cherry, ChevronRight, Cpu, PhilippinePeso, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -169,8 +169,6 @@ export default async function Home() {
               )}
             </div>
           </div>
-
-          <Footer />
         </div>
         <GridPattern className="fixed top-0 left-0 right-0 bottom-0 opacity-40" />
       </div>
