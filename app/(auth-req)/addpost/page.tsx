@@ -1,11 +1,15 @@
 "use client";
-import Editor from "@/components/Editor";
 import { Button } from "@/components/ui/button";
+import dynamic from "next/dynamic";
 
-import React from "react";
+import React, { useMemo } from "react";
 import { useState } from "react";
 
 const page = () => {
+    const Editor = useMemo(
+      () => dynamic(() => import("@/components/Editor"), { ssr: false }),
+      []
+    );
   const [title, setTitle] = useState("");
   const [descrption, setDescrption] = useState("");
   const [content, setContent] = useState<string>("");
@@ -22,7 +26,6 @@ const page = () => {
         isPublished: true,
       }),
     });
-    console.log(responsePublish.json());
   };
   const saveDraft = async () => {
     const responseSave = await fetch("/api/addpost", {
@@ -34,7 +37,6 @@ const page = () => {
         isPublished: false,
       }),
     });
-    console.log(responseSave.json());
   };
   return (
     <div className="min-h-screen max-w-5xl mx-auto">

@@ -2,7 +2,6 @@ import React from "react";
 import { auth } from "@/auth";
 const User = async () => {
   const session = await auth();
-  console.log(session?.user?.image);
   return (
     <div>
       <img

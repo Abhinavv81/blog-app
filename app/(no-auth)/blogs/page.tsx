@@ -7,66 +7,22 @@ import { Search } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const Blogs = () => {
-  const sampleArray = [
-    {
-      title: "First Blog",
-      description: "First Blog Description",
-      date: "Blog Date 1",
-    },
-    {
-      title: "Second Blog",
-      description: "Second Blog Description",
-      date: "Blog Date 2",
-    },
-    {
-      title: "Third Blog",
-      description: "Third Blog Description",
-      date: "Blog Date 3",
-    },
-    {
-      title: "Fourth Blog",
-      description: "Fourth Blog Description",
-      date: "Blog Date 4",
-    },
-    {
-      title: "Fifth Blog",
-      description: "Fifth Blog Description",
-      date: "Blog Date 5",
-    },
-    {
-      title: "Sixth Blog",
-      description: "Sixth Blog Description",
-      date: "Blog Date 6",
-    },
-    {
-      title: "Seventh Blog",
-      description: "Seventh Blog Description",
-      date: "Blog Date 7",
-    },
-    {
-      title: "Eighth Blog",
-      description: "Eighth Blog Description",
-      date: "Blog Date 8",
-    },
-    {
-      title: "Ninth Blog",
-      description: "Ninth Blog Description",
-      date: "Blog Date 9",
-    },
-    {
-      title: "Tenth Blog",
-      description: "Tenth Blog Description",
-      date: "Blog Date 10",
-    },
-  ];
   const [displayBlogs, setDisplayBlogs] = useState<
-    Array<{ title: string; description: string ; content:string }>
+    Array<{ _id: string; title: string; description: string; content: string }>
   >([]);
+  const [loading, setLoading] = useState(true);
+
 
   useEffect(() => {
     const fetchBlogs = async () => {
-      const blogs = await fetchBlogsFromAPI();
-      setDisplayBlogs(blogs);
+      try {
+        const blogs = await fetchBlogsFromAPI();
+        setDisplayBlogs(blogs);
+      } catch (error) {
+        console.error("Error fetching blogs:", error);
+      } finally {
+        setLoading(false);
+      }
     };
 
     fetchBlogs();
@@ -81,6 +37,15 @@ const Blogs = () => {
 
     return responsePublish; // Return the fetched blogs
   };
+
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        Loading...
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col items-center mt-3">
@@ -100,9 +65,10 @@ const Blogs = () => {
           <CardComponent
             title={item.title}
             description={item.description}
+            link={`/blogs/${item._id}`}
             key={index}
           />
-        ))}
+        ))}   
       </div>
       <Footer />
     </div>

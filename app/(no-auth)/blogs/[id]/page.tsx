@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import {
   Heart,
@@ -8,14 +9,86 @@ import {
   Flag,
   SquareChevronRight,
 } from "lucide-react";
-import React from "react";
+import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
+import dynamic from "next/dynamic";
+import { useState, useEffect, useMemo } from "react";
 
-const Page = () => {
+const Page = ({ params }: { params: Params }) => {
+  const Editor = useMemo(
+    () => dynamic(() => import("@/components/Editor"), { ssr: false }),
+    []
+  );
+  const [data, setdata] = useState<any>({});
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const response = await fetch(`/api/blog/${params.id}`, {
+          method: "GET",
+        });
+        if (!response.ok) {
+          throw new Error("Failed to fetch blog data");
+        }
+        const blogs = await response.json();
+        setdata(blogs.data);
+      } catch (error) {
+        console.error("Error fetching blog data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchBlogs();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        Loading...
+      </div>
+    );
+  }
+
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    const year = date.getFullYear();
+    const month = date.getMonth();
+    const day = date.getDate();
+    const week = date.getDay();
+
+    let weekName;
+    switch (week) {
+      case 0:
+        weekName = "Sunday";
+        break;
+      case 1:
+        weekName = "Monday";
+        break;
+      case 2:
+        weekName = "Tuesday";
+        break;
+      case 3:
+        weekName = "Wednesday";
+        break;
+      case 4:
+        weekName = "Thursday";
+        break;
+      case 5:
+        weekName = "Friday";
+        break;
+      case 6:
+        weekName = "Saturday";
+        break;
+    }
+
+    return `${weekName}  ${day}-${month}-${year}`;
+  };
+
   return (
     <div className="flex items-center flex-col mt-4 ">
       <div className=" flex    flex-col max-w-5xl p-6">
         <h1 className="md:text-6xl  font-semibold sm:text-4xl text-4xl">
-          Hello Guys My first blog{" "}
+          {data.title}
         </h1>
         <div className="flex  flex-col m-1 justify-start ">
           <div className="flex gap-3 justify-start m-2 mt-4 items-center">
@@ -27,8 +100,11 @@ const Page = () => {
               />
             </div>
             <div className="flex justify-between w-full flex-col  ">
-              <h1 className="  font-medium text-xl">Username</h1>{" "}
-              <h1 className="text-xs"> Published On xx-xx-xxxx</h1>
+              <h1 className="  font-medium text-xl">{data.userName}</h1>
+              <h1 className="text-xs">
+                {" "}
+                Published On {formatDate(data.createdAt)}
+              </h1>
             </div>
           </div>
           <div className="flex  mt-3 gap-10 p-1 border border-solid border-x-0 text-muted-foreground py-3 justify-between ">
@@ -48,85 +124,19 @@ const Page = () => {
                 <Flag size={20} />
               </div>
               <div className="hover:text-primary hover:border hover:border-primary/30  px-3 py-2 rounded-md flex justify-center items-center gap-2 border border-black/0">
-                <SquareChevronRight  size={20} />
+                <SquareChevronRight size={20} />
               </div>
             </div>
           </div>
         </div>
+        <div className="text-3xl">{data.description}</div>
 
         <div className="text-pretty  text-justify">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-          reprehenderit similique, itaque totam corporis atque numquam animi
-          ratione? Dignissimos architecto alias maiores perspiciatis commodi
-          unde culpa incidunt vitae qui molestias, magnam repellendus ducimus
-          nisi deleniti modi sunt nemo voluptas! Itaque alias eaque harum autem,
-          expedita at eveniet, voluptatibus perspiciatis veniam adipisci
-          accusantium! Est, ab asperiores ipsa harum itaque a voluptatibus culpa
-          autem voluptate expedita. Impedit exercitationem placeat architecto,
-          quia facere atque qui eveniet ipsam minus molestias praesentium illo
-          fugit numquam tenetur cupiditate? Doloremque laudantium veritatis
-          perspiciatis cumque similique libero dolorum, molestiae corrupti iure
-          blanditiis accusantium deserunt eaque, rem eveniet natus? Lorem ipsum
-          dolor sit amet consectetur adipisicing elit. Quas reprehenderit
-          similique, itaque totam corporis atque numquam animi ratione?
-          Dignissimos architecto alias maiores perspiciatis commodi unde culpa
-          incidunt vitae qui molestias, magnam repellendus ducimus nisi deleniti
-          modi sunt nemo voluptas! Itaque alias eaque harum autem, expedita at
-          eveniet, voluptatibus perspiciatis veniam adipisci accusantium! Est,
-          ab asperiores ipsa harum itaque a voluptatibus culpa autem voluptate
-          expedita. Impedit exercitationem placeat architecto, quia facere atque
-          qui eveniet ipsam minus molestias praesentium illo fugit numquam
-          tenetur cupiditate? Doloremque laudantium veritatis perspiciatis
-          cumque similique libero dolorum, molestiae corrupti iure blanditiis
-          accusantium deserunt eaque, rem eveniet natus? Lorem ipsum dolor sit
-          amet consectetur adipisicing elit. Quas reprehenderit similique,
-          itaque totam corporis atque numquam animi ratione? Dignissimos
-          architecto alias maiores perspiciatis commodi unde culpa incidunt
-          vitae qui molestias, magnam repellendus ducimus nisi deleniti modi
-          sunt nemo voluptas! Itaque alias eaque harum autem, expedita at
-          eveniet, voluptatibus perspiciatis veniam adipisci accusantium! Est,
-          ab asperiores ipsa harum itaque a voluptatibus culpa autem voluptate
-          expedita. Impedit exercitationem placeat architecto, quia facere atque
-          qui eveniet ipsam minus molestias praesentium illo fugit numquam
-          tenetur cupiditate? Doloremque laudantium veritatis perspiciatis
-          cumque similique libero dolorum, molestiae corrupti iure blanditiis
-          accusantium deserunt eaque, rem eveniet natus? Lorem ipsum dolor sit
-          amet consectetur adipisicing elit. Quas reprehenderit similique,
-          itaque totam corporis atque numquam animi ratione? Dignissimos
-          architecto alias maiores perspiciatis commodi unde culpa incidunt
-          vitae qui molestias, magnam repellendus ducimus nisi deleniti modi
-          sunt nemo voluptas! Itaque alias eaque harum autem, expedita at
-          eveniet, voluptatibus perspiciatis veniam adipisci accusantium! Est,
-          ab asperiores ipsa harum itaque a voluptatibus culpa autem voluptate
-          expedita. Impedit exercitationem placeat architecto, quia facere atque
-          qui eveniet ipsam minus molestias praesentium illo fugit numquam
-          tenetur cupiditate? Doloremque laudantium veritatis perspiciatis
-          cumque similique libero dolorum, molestiae corrupti iure blanditiis
-          accusantium deserunt eaque, rem eveniet natus? Lorem ipsum dolor sit
-          amet consectetur adipisicing elit. Quas reprehenderit similique,
-          itaque totam corporis atque numquam animi ratione? Dignissimos
-          architecto alias maiores perspiciatis commodi unde culpa incidunt
-          vitae qui molestias, magnam repellendus ducimus nisi deleniti modi
-          sunt nemo voluptas! Itaque alias eaque harum autem, expedita at
-          eveniet, voluptatibus perspiciatis veniam adipisci accusantium! Est,
-          ab asperiores ipsa harum itaque a voluptatibus culpa autem voluptate
-          expedita. Impedit exercitationem placeat architecto, quia facere atque
-          qui eveniet ipsam minus molestias praesentium illo fugit numquam
-          tenetur cupiditate? Doloremque laudantium veritatis perspiciatis
-          cumque similique libero dolorum, molestiae corrupti iure blanditiis
-          accusantium deserunt eaque, rem eveniet natus? Lorem ipsum dolor sit
-          amet consectetur adipisicing elit. Quas reprehenderit similique,
-          itaque totam corporis atque numquam animi ratione? Dignissimos
-          architecto alias maiores perspiciatis commodi unde culpa incidunt
-          vitae qui molestias, magnam repellendus ducimus nisi deleniti modi
-          sunt nemo voluptas! Itaque alias eaque harum autem, expedita at
-          eveniet, voluptatibus perspiciatis veniam adipisci accusantium! Est,
-          ab asperiores ipsa harum itaque a voluptatibus culpa autem voluptate
-          expedita. Impedit exercitationem placeat architecto, quia facere atque
-          qui eveniet ipsam minus molestias praesentium illo fugit numquam
-          tenetur cupiditate? Doloremque laudantium veritatis perspiciatis
-          cumque similique libero dolorum, molestiae corrupti iure blanditiis
-          accusantium deserunt eaque, rem eveniet natus?
+          <Editor
+            editable={false}
+            onChange={() => {}}
+            initialContent={data.content}
+          />
         </div>
 
         <div className="flex flex-wrap gap-4  my-12">
@@ -163,7 +173,7 @@ const Page = () => {
               <Flag size={20} />
             </div>
             <div className="hover:text-primary hover:border hover:border-primary/30  px-3 py-2 rounded-md flex justify-center items-center gap-2 border border-black/0">
-              <SquareChevronRight  size={20} />
+              <SquareChevronRight size={20} />
             </div>
           </div>
         </div>
@@ -177,10 +187,12 @@ const Page = () => {
             />
           </div>
           <div className="flex justify-between w-full flex-col  ">
-            <h1 className="  font-medium text-3xl">Written By Username</h1>{" "}
+            <h1 className="  font-medium text-3xl">
+              Written By {data.userName}
+            </h1>{" "}
             <h1 className="text-base text-muted-foreground my-3 ">
               {" "}
-              Published On xx-xx-xxxx
+              Published On {data.createdAt}
             </h1>
             <p className="text-muted-foreground">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.

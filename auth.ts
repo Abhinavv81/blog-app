@@ -1,5 +1,6 @@
 import NextAuth from "next-auth";
 import Google from "next-auth/providers/google";
+import { checkUser, createUser } from "./actions/user";
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [Google],
   callbacks: {
@@ -7,11 +8,11 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       if (account?.provider === "google") {
         const { name, email } = user;
         try {
-          // const userExists = await checkUser(email || "");
+          const userExists = await checkUser(email || "");
 
-          // if (!userExists) {
-          //   const acc = await createUser(name || "", email || "");
-          // }
+          if (!userExists) {
+            const acc = await createUser(name || "", email || "");
+          }
 
           return user; // don't edit this line
         } catch (error) {
