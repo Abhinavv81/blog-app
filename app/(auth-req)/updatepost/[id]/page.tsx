@@ -39,7 +39,6 @@ const page = ({ params }: { params: Params }) => {
         isPublished: true,
       }),
     });
-    console.log(responsePublish.json());
   };
   const saveDraft = async () => {
     const responseSave = await fetch("/api/updatepost", {
@@ -52,7 +51,6 @@ const page = ({ params }: { params: Params }) => {
         isPublished: false,
       }),
     });
-    console.log(responseSave.json());
   };
 
   return (
