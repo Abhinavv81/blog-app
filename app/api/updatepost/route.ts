@@ -1,11 +1,11 @@
 import { NextResponse, NextRequest } from "next/server";
 import { auth } from "@/auth";
 import { checkUser } from "@/actions/user";
-import { createblog } from "@/actions/addpost";
 import BlogModel from "@/models/blog";
-import UserModel from "@/models/user";
+import { connectDB } from "@/lib/db";
 
 export async function POST(req: NextRequest) {
+  await connectDB();
   const session = await auth();
 
   if (!session?.user) {
