@@ -9,12 +9,12 @@ export const metadata: Metadata = {
     "Join our community of passionate writers and readers. Start your journey today and let your voice be heard.",
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  await connectDB();
+  connectDB();
   return (
     <html lang="en">
       <body>
