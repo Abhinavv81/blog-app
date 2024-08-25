@@ -5,7 +5,7 @@ const User = async () => {
   return (
     <div>
       <img
-        className="rounded-full h-9"
+        className="rounded-full max-w-[36px]"
         src={session?.user?.image || "https://www.gravatar.com/avatar/000?d=mp"}
         alt={session?.user?.name || ""}
       />
