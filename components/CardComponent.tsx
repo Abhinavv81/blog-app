@@ -7,25 +7,29 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import Link from "next/link";
 const CardComponent = ({
   title,
   description,
   content,
   footer,
+  link,
 }: {
   title: string;
   description?: string;
   content?: string;
   footer?: string;
+  link: string; 
 }) => {
   return (
     <Card className="w-full my-2">
       <CardHeader>
-        <CardTitle>{title}</CardTitle>
+        <Link href={link}>
+          <CardTitle>{title}</CardTitle>
+        </Link>
         <CardDescription>{description}</CardDescription>
       </CardHeader>
       <CardContent>{content}</CardContent>
-      <CardFooter>{footer}</CardFooter>
     </Card>
   );
 };

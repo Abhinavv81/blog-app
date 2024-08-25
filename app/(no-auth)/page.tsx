@@ -1,5 +1,5 @@
 import LandingPageText from "./_components/LandingPageText";
-import Footer from "@/components/Footer";
+import Footer from "./_components/Footer";
 import GridPattern from "@/components/magicui/grid-pattern";
 import { Cherry, ChevronRight, Cpu, PhilippinePeso, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";

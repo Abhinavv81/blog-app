@@ -1,7 +1,8 @@
-
+import Link from "next/link";
 import React from "react";
+import { Button } from "./ui/button";
 
-const Not_Found_page = () => {
+const Not_Found_page = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1004.1441">

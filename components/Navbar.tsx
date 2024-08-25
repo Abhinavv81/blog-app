@@ -1,5 +1,5 @@
 import { ModeToggle } from "@/components/Mode-theme";
-
+import Navlinks from "@/components/Navlinks";
 import { Button } from "@/components/ui/button";
 import React from "react";
 import Link from "next/link";
@@ -14,7 +14,7 @@ const Navbar = async () => {
   return (
     <header className="flex items-center justify-between w-full z-50 ">
       <Link href="/">
-        <h1 className="text-2xl font-bold">Logo</h1>
+        <h1 className="text-2xl font-bold">KEN</h1>
       </Link>
       <nav className="hidden md:flex text-muted-foreground "></nav>
       <div className="flex items-center relative gap-2">
