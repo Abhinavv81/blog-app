@@ -1,5 +1,5 @@
 import { ModeToggle } from "@/components/Mode-theme";
-import Navlinks from "@/components/Navlinks";
+
 import { Button } from "@/components/ui/button";
 import React from "react";
 import Link from "next/link";
