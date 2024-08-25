@@ -17,27 +17,19 @@ const Footer = () => {
         <div className="col-span-1">
           <span className="font-semibold text-lg">Quick Links</span>
           <ul className="text-muted-foreground ml-4 mt-3">
-            <li>
-              <a href="/about">About</a>
-            </li>
-            <li>
-              <a href="/privacy">Privacy Policy</a>
-            </li>
-            <li>
-              <a href="/contact">Contact</a>
-            </li>
-            <li>
-              <a href="/terms">Terms of Service</a>
-            </li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/terms">Terms of Service</a></li>
           </ul>
         </div>
         <div className="col-span-1">
           <span className="font-semibold text-lg">Social Links</span>
           <div className="flex gap-3 flex-wrap mt-4 text-muted-foreground">
-            <Twitter href="https://instagram.com" />
-            <Instagram href="https://instagram.com" />
-            <GithubIcon href="https://github.com" />
-            <Linkedin href="https://linkedin.com" />
+            <Twitter />
+            <Instagram />
+            <GithubIcon />
+            <Linkedin />
           </div>
         </div>
       </div>

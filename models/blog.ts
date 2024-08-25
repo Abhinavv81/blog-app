@@ -7,6 +7,7 @@ interface IBlog extends Document {
   title: string;
   description?: string;
   content?: string;
+  tags?: string[];
   isPublished: boolean;
   coverImage?: string;
   icon?: string;
@@ -50,6 +51,12 @@ const BlogSchema = new Schema<IBlog>(
       type: String,
       required: false,
     },
+    tags: [
+      {
+        type: String,
+        required: false,
+      },
+    ],
     isPublished: {
       type: Boolean,
       required: true,
