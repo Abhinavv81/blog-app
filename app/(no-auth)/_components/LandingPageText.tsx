@@ -1,10 +1,8 @@
-
 import { Button } from "@/components/ui/button";
 import React from "react";
 import Link from "next/link";
 import { auth } from "@/auth";
 import { SignInGoogle } from "@/actions/auth";
-import { resolve } from "path";
 const LandingPageText = async () => {
   const session = await auth();
   return (
@@ -21,7 +19,7 @@ const LandingPageText = async () => {
           {session?.user ? (
             <div>
               <Link href={"/addpost"}>
-                <Button>Write a Blog</Button>
+                <Button size={"sm"}>Write a Blog</Button>
               </Link>
             </div>
           ) : (
@@ -34,7 +32,9 @@ const LandingPageText = async () => {
             </div>
           )}
           <Link href={"/blogs"}>
-            <Button variant={"outline"}>Explore Blogs</Button>
+            <Button variant={"outline"} size={"sm"}>
+              Explore Blogs
+            </Button>
           </Link>
         </div>
       </div>
