@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
   const user = await checkUser(session.user.email || "");
   const userId = user?.id;
   const userName = user?.name;
-  
+
   const { id, title, description, content, isPublished } = await req.json();
 
   if (userId !== session.user.id) {
